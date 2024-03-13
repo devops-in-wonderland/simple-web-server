@@ -1,0 +1,8 @@
+venv/
+test-results/
+README.md
+__pycache__/
+.DS_Store
+helm/
+.github/
+.gitignore
