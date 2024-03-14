@@ -5,7 +5,7 @@ import time
 app = Flask(__name__)
 
 app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024
-app.config['UPLOAD_PATH'] = os.path.join('templates', 'test-results')
+app.config['UPLOAD_PATH'] = os.path.join('uploads')
 
 
 def mkdir_if_does_not_exists(dir: str):
@@ -41,7 +41,9 @@ def index():
 
 @app.route('/test-results/<folder>')
 def get_results(folder):
-    return render_template(f'test-results/{str(folder)}/index.html')
+    with open(f'test-results/{str(folder)}/index.html') as f:
+        content = f.read()
+    return content
 
 
 if __name__ == "__main__":
