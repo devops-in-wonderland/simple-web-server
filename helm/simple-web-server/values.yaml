@@ -89,18 +89,22 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-# Additional volumes on the output Deployment definition.
-volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
+storage:
+  capacity: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: microk8s-hostpath
+  volumeMode: Filesystem
+  volumeType: hostPath
+  
+volumes:
+  - name: simple-web-server-storage
+    persistentVolumeClaim:
+      claimName: simple-web-server-pvc
 
-# Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
+volumeMounts:
+  - mountPath: "/app/test-results"
+    name: simple-web-server-storage
 
 nodeSelector: {}
 
