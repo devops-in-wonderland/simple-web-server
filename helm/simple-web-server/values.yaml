@@ -103,7 +103,7 @@ volumes:
       claimName: simple-web-server-pvc
 
 volumeMounts:
-  - mountPath: "/app/test-results"
+  - mountPath: "/app/uploads"
     name: simple-web-server-storage
 
 nodeSelector: {}
