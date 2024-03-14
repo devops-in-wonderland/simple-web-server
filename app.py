@@ -42,8 +42,11 @@ def upload():
 
 @app.route('/test-results/<folder>')
 def get_results(folder):
-    with open(f'{app.config['UPLOAD_PATH']}/{str(folder)}/index.html') as f:
-        content = f.read()
+    try:
+        with open(f'{app.config['UPLOAD_PATH']}/{str(folder)}/index.html') as f:
+            content = f.read()
+    except:
+        return "Test report not found."
     return content
 
 
