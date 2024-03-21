@@ -4,7 +4,7 @@ import time
 
 app = Flask(__name__)
 
-app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024
+app.config['MAX_CONTENT_LENGTH'] = 128 * 1024 * 1024
 app.config['UPLOAD_PATH'] = 'uploads'
 
 
