@@ -8,7 +8,7 @@ image:
   repository: ghcr.io/devops-in-wonderland/simple-web-server
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "20094ee8f3ee24e12d1fefce81ad247723530f4f"
 
 imagePullSecrets:
   - name: regcred
@@ -93,9 +93,7 @@ storage:
   capacity: 1Gi
   accessModes:
     - ReadWriteOnce
-  storageClassName: microk8s-hostpath
-  volumeMode: Filesystem
-  volumeType: hostPath
+  storageClassName: gp2
   
 volumes:
   - name: simple-web-server-storage
